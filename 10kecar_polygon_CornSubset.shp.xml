@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20200312</CreaDate><CreaTime>10263200</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="c:\program files (x86)\arcgis\desktop10.4\ArcToolbox\Toolboxes\Conversion Tools.tbx\RasterToPolygon" Date="20200312" Time="100431">RasterToPolygon 10kmGrid_Points.tif E:\CropCondition\BeyondNDVI\Analysis\EasternOntarioSTICS\10KECAR_Polygon.shp NO_SIMPLIFY Value</Process></lineage></DataProperties></Esri></metadata>
