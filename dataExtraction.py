@@ -7,20 +7,25 @@ import os
 import xlsxwriter
 
 print(os.getcwd())
-shp_filepath = "/Users/anniewen/Documents/Dev/NAIS/10kecar_polygon_CornSubset.shp"
-tif_filepath="RDPS_Tempavg_20101101.tif"
+shp_filepath = "/Users/anniewen/Documents/Dev/NAIS/EasternOntarioCAR_10kgrid_corn/10kecar_polygon_CornSubset.shp" # path to shape file
+tif_dirpath="Temperature" # Path to folder containing tifs of interest
 output_dir = " "
+
+lst_files = os.listdir(tif_dirpath)
 
 data = gpd.read_file(shp_filepath)
 newdf = data['ID']
-
 df_x = newdf.to_frame()
 
-stats = zonal_stats(shp_filepath, tif_filepath)
-mean_lst = [f['mean'] for f in stats]
-np_mean_list = np.asarray(mean_lst)
+count = 0
+for tif in lst_files:
+    count += 1
 
-df_x.insert(1, 'replace', np_mean_list)
+    stats = zonal_stats(shp_filepath, os.path.join(tif_dirpath,tif))
+    mean_lst = [f['mean'] for f in stats]
+    np_mean_list = np.asarray(mean_lst)
+
+    df_x.insert(count, tif, np_mean_list)
 
 print(df_x)
 print(os.getcwd())
